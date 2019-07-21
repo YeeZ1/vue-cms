@@ -63,11 +63,13 @@ textarea {
     height: 80px;
 }
 .cmt-list {
-    margin: 10px;
-    font-size: 14px; 
+    margin: 10px 0;
+    font-size: 13px; 
 }
 .cmt-body {
-    padding: 10px 0;
+    padding: 10px 5px;
+    font-size: 12px;
     background-color: #fff;
+    border-radius: 5px;
 }
 </style>
