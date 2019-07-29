@@ -8,6 +8,9 @@ import newInfo from './components/news/newInfo.vue'
 import picture from './components/picture/picture.vue'
 import photoInfo from './components/picture/photoInfo.vue'
 import goodslist from './components/goods/goodslist.vue'
+import goodsInfo from './components/goods/goodsInfo.vue'
+import goodsdes from './components/goods/goodsdes.vue'
+import goodscom from './components/goods/goodscom.vue'
 export default  new VueRouter({
     routes:[{path:'/' , redirect:'/home'},
             {path:'/home' , component:home},
@@ -18,6 +21,10 @@ export default  new VueRouter({
             {path:'/home/newInfo/:id' , component:newInfo},
             {path:'/home/picture' , component:picture},
             {path:'/home/photoInfo/:id' , component:photoInfo},
-            {path:'/home/goodslist' , component:goodslist}],
+            {path:'/home/goodslist' , component:goodslist} ,
+            {path:'/home/goodsInfo/:id' ,name:'goodsinfo', component:goodsInfo},
+            {path:'/home/goodsdes/:id' , name:'goodsdes' , component:goodsdes},
+            {path:'/home/goodscom/:id' , name:'goodscom' , component:goodscom}
+        ],
     linkActiveClass:"mui-active"
 })

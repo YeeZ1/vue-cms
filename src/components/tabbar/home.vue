@@ -1,10 +1,6 @@
 <template>
   <div>
-    <mt-swipe :auto="4000">
-      <mt-swipe-item v-for="item in picList" :key="item.id">
-          <img :src="item.img" alt="">
-      </mt-swipe-item>
-    </mt-swipe>
+    <swiper :piclist="picList"></swiper>
     <ul class="mui-table-view mui-grid-view mui-grid-9">
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
                         <router-link to="/home/news">
@@ -29,7 +25,8 @@
   </div>
 </template>
 <script>
-    export default {
+import swiper from '../common/swiper.vue'
+    export default{
         data() {
             return{
                 picList:[]
@@ -38,12 +35,14 @@
         created() {
             this.getPicList()
         },
+        components:{
+            swiper
+        },
         methods:{
             getPicList() {
                 this.$http.get('http://www.liulongbin.top:3005/api/getlunbo')
                 .then(res => {
                     res.body.status == 0 ? this.picList = res.body.message : Toast('请求数据失败')
-                    console.log(this.picList)
                     
                 })
             }
@@ -51,18 +50,11 @@
     };
 </script>
 <style scoped>
-    .mint-swipe {
-        height: 200px;
-    }
     .mint-swipe-item:nth-of-type(2n) {
         background-color: aqua;
     }
      .mint-swipe-item:nth-of-type(2n-1) {
         background-color: hotpink;
-    }
-    .mint-swipe-item img {
-        width: 100%;
-        height: 100%;
     }
     .mui-table-view.mui-grid-view  {
         background-color: #fff;

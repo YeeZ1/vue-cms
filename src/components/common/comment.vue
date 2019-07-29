@@ -46,7 +46,6 @@ export default {
         getComments() {
             this.$http.get('api/getcomments/' + this.id +'?pageindex=' + this.pageindex)
             .then(res => {
-                console.log(res)
                 //此处用请求回来的数组连接方法，点击更多不会覆盖之前的请求数据
                 res.status == 200 ? this.commentsList = this.commentsList.concat(res.body.message) : Toast('请求数据失败')
             })

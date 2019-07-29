@@ -47,7 +47,6 @@ export default {
 		getPhotos(id) {
 			this.$http.get('api/getimages/' + id)
 			.then( res => {
-				console.log(res.body)
 				if(res.body.status == 0) this.photoList = res.body.message
 			})
 		},
